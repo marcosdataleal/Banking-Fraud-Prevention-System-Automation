@@ -1,0 +1,16 @@
+{
+  "total_transacoes": 2525,
+  "aprovadas": 2031,
+  "rejeitadas": 494,
+  "taxa_rejeicao": 0.1956,
+  "valor_total": 3424669.75,
+  "valor_aprovado": 1788869.39,
+  "risco_medio": 17.35,
+  "transacoes_alto_risco": 54,
+  "amostras_auditoria": 738,
+  "motivos_rejeicao": {
+    "SALDO_INSUFICIENTE": 266,
+    "CONTA_BLOQUEADA_OU_ENCERRADA": 199,
+    "CONTA_INEXISTENTE": 29
+  }
+}

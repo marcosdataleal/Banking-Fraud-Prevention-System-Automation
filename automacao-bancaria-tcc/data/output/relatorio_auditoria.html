@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Relatorio BankFlow Auditor</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f4f7f9; color: #1f2933; }
+    header { background: #0b5c56; color: white; padding: 32px 48px; }
+    main { padding: 32px 48px; }
+    section.metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; }
+    article { background: white; border: 1px solid #d9e2ec; border-radius: 8px; padding: 18px; }
+    article span { display: block; color: #52606d; font-size: 13px; margin-bottom: 8px; }
+    article strong { font-size: 24px; }
+    .panel { margin-top: 28px; background: white; border: 1px solid #d9e2ec; border-radius: 8px; padding: 22px; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border-bottom: 1px solid #e4e7eb; padding: 10px; text-align: left; font-size: 14px; }
+    th { background: #f0f4f8; }
+    ul.risk { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; padding: 0; list-style: none; }
+    ul.risk li { background: #eef8f6; border: 1px solid #bfddd8; border-radius: 8px; padding: 14px; }
+    ul.risk strong, ul.risk span { display: block; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>BankFlow Auditor</h1>
+    <p>Automacao bancaria com conciliacao, risco e amostragem para auditoria.</p>
+  </header>
+  <main>
+    <section class="metrics"><article><span>Total Transacoes</span><strong>2525</strong></article><article><span>Aprovadas</span><strong>2031</strong></article><article><span>Rejeitadas</span><strong>494</strong></article><article><span>Taxa Rejeicao</span><strong>0.1956</strong></article><article><span>Valor Total</span><strong>3424669.75</strong></article><article><span>Valor Aprovado</span><strong>1788869.39</strong></article><article><span>Risco Medio</span><strong>17.35</strong></article><article><span>Transacoes Alto Risco</span><strong>54</strong></article><article><span>Amostras Auditoria</span><strong>738</strong></article></section>
+    <section class="panel">
+      <h2>Amostras por nivel de risco</h2>
+      <ul class="risk"><li><strong>BAIXO</strong><span>461 transacoes</span></li><li><strong>MEDIO</strong><span>223 transacoes</span></li><li><strong>ALTO</strong><span>54 transacoes</span></li></ul>
+    </section>
+    <section class="panel">
+      <h2>Top 20 transacoes selecionadas para auditoria</h2>
+      <table border="1" class="dataframe table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>transaction_id</th>
+      <th>account_id</th>
+      <th>tipo</th>
+      <th>valor</th>
+      <th>risk_score</th>
+      <th>nivel_risco</th>
+      <th>motivo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>TRX0000542</td>
+      <td>ACC00056</td>
+      <td>BOLETO</td>
+      <td>16438.84</td>
+      <td>68.92</td>
+      <td>ALTO</td>
+      <td>SALDO_INSUFICIENTE</td>
+    </tr>
+    <tr>
+      <td>TRX0001603</td>
+      <td>ACC00039</td>
+      <td>DEPOSITO</td>
+      <td>4388.69</td>
+      <td>68.46</td>
+      <td>ALTO</td>
+      <td>APROVADA</td>
+    </tr>
+    <tr>
+      <td>TRX0000415</td>
+      <td>ACC00083</td>
+      <td>CARTAO</td>
+      <td>467.05</td>
+      <td>66.28</td>
+      <td>ALTO</td>
+      <td>CONTA_BLOQUEADA_OU_ENCERRADA</td>
+    </tr>
+    <tr>
+      <td>TRX0002358</td>
+      <td>ACC00083</td>
+      <td>BOLETO</td>
+      <td>171.70</td>
+      <td>64.06</td>
+      <td>ALTO</td>
+      <td>CONTA_BLOQUEADA_OU_ENCERRADA</td>
+    </tr>
+    <tr>
+      <td>TRX0000600</td>
+      <td>ACC00083</td>
+      <td>BOLETO</td>
+      <td>1252.96</td>
+      <td>63.38</td>
+      <td>ALTO</td>
+      <td>CONTA_BLOQUEADA_OU_ENCERRADA</td>
+    </tr>
+    <tr>
+      <td>TRX0001222</td>
+      <td>ACC00037</td>
+      <td>BOLETO</td>
+      <td>917.47</td>
+      <td>63.21</td>
+      <td>ALTO</td>
+      <td>CONTA_BLOQUEADA_OU_ENCERRADA</td>
+    </tr>
+    <tr>
+      <td>TRX0001440</td>
+      <td>ACC00075</td>
+      <td>PIX</td>
+      <td>40521.06</td>
+      <td>63.10</td>
+      <td>ALTO</td>
+      <td>SALDO_INSUFICIENTE</td>
+    </tr>
+    <tr>
+      <td>TRX0000920</td>
+      <td>ACC00083</td>
+      <td>BOLETO</td>
+      <td>51.32</td>
+      <td>63.00</td>
+      <td>ALTO</td>
+      <td>CONTA_BLOQUEADA_OU_ENCERRADA</td>
+    </tr>
+    <tr>
+      <td>TRX0000497</td>
+      <td>ACC00037</td>
+      <td>TED</td>
+      <td>1383.58</td>
+      <td>62.89</td>
+      <td>ALTO</td>
+      <td>CONTA_BLOQUEADA_OU_ENCERRADA</td>
+    </tr>
+    <tr>
+      <td>TRX0001615</td>
+      <td>ACC00037</td>
+      <td>DEPOSITO</td>
+      <td>1005.14</td>
+      <td>62.51</td>
+      <td>ALTO</td>
+      <td>CONTA_BLOQUEADA_OU_ENCERRADA</td>
+    </tr>
+    <tr>
+      <td>TRX0001873</td>
+      <td>ACC00055</td>
+      <td>PIX</td>
+      <td>3326.42</td>
+      <td>62.33</td>
+      <td>ALTO</td>
+      <td>CONTA_BLOQUEADA_OU_ENCERRADA</td>
+    </tr>
+    <tr>
+      <td>TRX0001305</td>
+      <td>ACC00020</td>
+      <td>PIX</td>
+      <td>11320.13</td>
+      <td>62.18</td>
+      <td>ALTO</td>
+      <td>SALDO_INSUFICIENTE</td>
+    </tr>
+    <tr>
+      <td>TRX0000892</td>
+      <td>ACC00004</td>
+      <td>PIX</td>
+      <td>10409.91</td>
+      <td>61.93</td>
+      <td>ALTO</td>
+      <td>SALDO_INSUFICIENTE</td>
+    </tr>
+    <tr>
+      <td>TRX0001692</td>
+      <td>ACC00085</td>
+      <td>PIX</td>
+      <td>51242.88</td>
+      <td>61.93</td>
+      <td>ALTO</td>
+      <td>SALDO_INSUFICIENTE</td>
+    </tr>
+    <tr>
+      <td>TRX0001227</td>
+      <td>ACC00083</td>
+      <td>BOLETO</td>
+      <td>1872.59</td>
+      <td>61.88</td>
+      <td>ALTO</td>
+      <td>CONTA_BLOQUEADA_OU_ENCERRADA</td>
+    </tr>
+    <tr>
+      <td>TRX0002113</td>
+      <td>ACC00083</td>
+      <td>PIX</td>
+      <td>310.17</td>
+      <td>61.23</td>
+      <td>ALTO</td>
+      <td>CONTA_BLOQUEADA_OU_ENCERRADA</td>
+    </tr>
+    <tr>
+      <td>TRX0002391</td>
+      <td>ACC00048</td>
+      <td>PIX</td>
+      <td>907.81</td>
+      <td>59.99</td>
+      <td>ALTO</td>
+      <td>CONTA_BLOQUEADA_OU_ENCERRADA</td>
+    </tr>
+    <tr>
+      <td>TRX0002343</td>
+      <td>ACC00048</td>
+      <td>PIX</td>
+      <td>893.15</td>
+      <td>59.96</td>
+      <td>ALTO</td>
+      <td>CONTA_BLOQUEADA_OU_ENCERRADA</td>
+    </tr>
+    <tr>
+      <td>TRX0000519</td>
+      <td>ACC00083</td>
+      <td>PIX</td>
+      <td>572.67</td>
+      <td>58.33</td>
+      <td>MEDIO</td>
+      <td>CONTA_BLOQUEADA_OU_ENCERRADA</td>
+    </tr>
+    <tr>
+      <td>TRX0001577</td>
+      <td>ACC00037</td>
+      <td>TED</td>
+      <td>233.00</td>
+      <td>58.19</td>
+      <td>MEDIO</td>
+      <td>CONTA_BLOQUEADA_OU_ENCERRADA</td>
+    </tr>
+  </tbody>
+</table>
+    </section>
+  </main>
+</body>
+</html>
